@@ -1,6 +1,6 @@
 # Rails
-resource "aws_ecr_repository" "rails-portfolio" {
-  name                 = "rails-portfolio"
+resource "aws_ecr_repository" "rails" {
+  name                 = "rails"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -9,8 +9,8 @@ resource "aws_ecr_repository" "rails-portfolio" {
 }
 
 # Nginx
-resource "aws_ecr_repository" "nginx-portfolio" {
-  name                 = "nginx-portfolio"
+resource "aws_ecr_repository" "nginx" {
+  name                 = "nginx"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {

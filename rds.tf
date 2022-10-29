@@ -1,18 +1,18 @@
-resource "aws_db_subnet_group" "portfolio_ecs_rds_subnet_group" {
-  name        = "portfolio_ecs_rds_subnet_group"
-  description = "portfolio_ecs_rds_subnet_group"
+resource "aws_db_subnet_group" "portfolio_rds_subnet_group" {
+  name        = "portfolio_rds_subnet_group"
+  description = "portfolio_rds_subnet_group"
   subnet_ids = [
-    aws_subnet.ecs_portfolio_private_subnet1.id,
-    aws_subnet.ecs_portfolio_private_subnet2.id
+    aws_subnet.portfolio_private_subnet1.id,
+    aws_subnet.portfolio_private_subnet2.id
   ]
 }
 
-resource "aws_db_instance" "portfolio-ecs-db" {
-  identifier        = "portfolio-ecs-db"
+resource "aws_db_instance" "portfolio-db" {
+  identifier        = "portfolio-db"
   engine            = "mysql"
   engine_version    = "8.0.28"
   instance_class    = "db.t2.micro"
-  allocated_storage = 20
+  allocated_storage = 200
   storage_type      = "gp2"
   # db_name                             = var.database_name
   username                            = var.database_username
@@ -30,6 +30,6 @@ resource "aws_db_instance" "portfolio-ecs-db" {
   storage_encrypted                   = false
   tags                                = {}
 
-  vpc_security_group_ids = [aws_security_group.ecs_rds_portfolio_security.id]
-  db_subnet_group_name   = aws_db_subnet_group.portfolio_ecs_rds_subnet_group.name
+  vpc_security_group_ids = [aws_security_group.portfolio_rds_security.id]
+  db_subnet_group_name   = aws_db_subnet_group.portfolio_rds_subnet_group.name
 }

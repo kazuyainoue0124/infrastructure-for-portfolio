@@ -1,7 +1,7 @@
-resource "aws_internet_gateway" "ecs_portfolio_igw" {
-  vpc_id = aws_vpc.ecs_portfolio_vpc.id
+resource "aws_internet_gateway" "portfolio_igw" {
+  vpc_id = aws_vpc.portfolio_vpc.id
 
   tags = {
-    Name = "ecs_portfolio_igw"
+    Name = "portfolio_igw"
   }
 }

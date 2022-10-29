@@ -3,11 +3,11 @@
       "cpu"              : 0,
       "environment"      : [],
       "essential"        : true,
-      "image"            : "620871201833.dkr.ecr.ap-northeast-1.amazonaws.com/nginx-portfolio:e0faa411af25ce67e0c8c1fed0332397b3137ac9",
+      "image"            : "620871201833.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:337c6e2fd33aeed32fc759773bd99a319ee7b33e",
       "logConfiguration" : {
           "logDriver" : "awslogs",
           "options"   : {
-              "awslogs-group"         : "/ecs/portfolio",
+              "awslogs-group"         : "/ecs/portfolio_task",
               "awslogs-region"        : "ap-northeast-1",
               "awslogs-stream-prefix" : "ecs"
           }
@@ -32,11 +32,11 @@
       "environment"      : [
           {
               "name"  : "DB_DATABASE",
-              "value" : "portfolio_db"
+              "value" : "portfolio-db"
           },
           {
               "name"  : "DB_HOST",
-              "value" : "portfolio-ecs-db.c2wru6wfdqmd.ap-northeast-1.rds.amazonaws.com"
+              "value" : "portfolio-db.c2wru6wfdqmd.ap-northeast-1.rds.amazonaws.com"
           },
           {
               "name"  : "DB_PASSWORD",
@@ -52,11 +52,11 @@
           }
       ],
       "essential"        : true,
-      "image"            : "620871201833.dkr.ecr.ap-northeast-1.amazonaws.com/rails-portfolio:e0faa411af25ce67e0c8c1fed0332397b3137ac9",
+      "image"            : "620871201833.dkr.ecr.ap-northeast-1.amazonaws.com/rails:337c6e2fd33aeed32fc759773bd99a319ee7b33e",
       "logConfiguration" : {
           "logDriver" : "awslogs",
           "options"   : {
-              "awslogs-group"         : "/ecs/portfolio",
+              "awslogs-group"         : "/ecs/portfolio_task",
               "awslogs-region"        : "ap-northeast-1",
               "awslogs-stream-prefix" : "ecs"
           }
